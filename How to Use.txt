@@ -1,0 +1,46 @@
+Jalankan jansen.py pada terminal atau git untuk memulai chatbot
+
+
+Berikut merupakan beberapa kata kunci yang bisa digunakan
+
+1) Sapaan (Greetings)
+
+"halo"
+"hai"
+"assalamualaikum"
+"apa kabar"
+"hey"
+"baik"
+
+2) Informasi (Information)
+
+"siapa jansen"
+"apa itu chatbot"
+"bagaimana jansen bekerja"
+
+3) Tebak Tebakan (Guessing)
+
+"ayo main"
+"main tebak-tebakan"
+
+4) Tertawa (Laugh)
+
+"haha"
+"hihi"
+"hehe"
+"lucu"
+"wkwk"
+"hoho"
+
+5) Terimakasih (Thanks)
+
+"terimakasih"
+"terima kasih"
+
+6) Keluar (Exit)
+
+"keluar"
+
+7) Menghentikan Kata (Stop Word)
+
+Chatbot Jansen dilengkapi dengan fitur stopword yang canggih untuk meningkatkan akurasi dan efisiensi percakapan. Stopword adalah kata-kata umum yang sering muncul dalam bahasa, seperti "yang", "di", "ke", "dan", dll. Kata-kata ini umumnya tidak memiliki makna signifikan dan dapat diabaikan dalam pemrosesan bahasa alami.
