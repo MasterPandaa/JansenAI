@@ -1,92 +1,79 @@
-# 🤖 JansenAI — Intelligent NLP Chatbot Assistant
+# JansenAI — Classical NLP Conversational Agent
 
-> An interactive conversational chatbot assistant powered by **Natural Language Processing (NLP)**, **TF-IDF Vectorization**, and **Cosine Similarity** algorithms built in Python.
+A conversational chatbot in Python utilizing **Natural Language Processing (NLP)**, **TF-IDF Vectorization**, and **Cosine Similarity** for semantic response retrieval.
 
----
-
-## 📌 Overview
-
-**JansenAI** is an AI conversational agent developed for interactive dialogue and knowledge retrieval. The system processes user queries, applies linguistic normalization and tokenization, and computes cosine similarity scores against a corpus knowledge base (`chatbot.txt`) to deliver contextually relevant responses in real-time.
+JansenAI parses user queries, applies linguistic normalization and lemmatization via NLTK, and computes vector similarity across a knowledge corpus (`chatbot.txt`) to surface relevant responses in real time.
 
 ---
 
-## 🧠 Core Architecture & Methodology
+## Architecture & Methodology
 
 ```mermaid
 flowchart LR
-    A["User Input Text"] --> B["NLTK Preprocessing<br/>(Tokenize & Lemmatize)"]
-    B --> C["TF-IDF Vectorizer<br/>(Term Weighting)"]
-    C --> D["Cosine Similarity<br/>(Corpus Matching)"]
-    D --> E["Response Generation<br/>(Best Semantic Match)"]
+    A["User Query"] --> B["NLTK Normalization<br/>(Tokenize & Lemmatize)"]
+    B --> C["TF-IDF Vectorizer<br/>(Term Frequency Weights)"]
+    C --> D["Cosine Similarity<br/>(Corpus Distance)"]
+    D --> E["Response Selection<br/>(Best Semantic Match)"]
 ```
 
-1. **Text Preprocessing & Normalization:**
+1. **Text Preprocessing & Normalization**:
    - Word and sentence tokenization using `nltk.sent_tokenize` and `nltk.word_tokenize`.
-   - Word lemmatization using `WordNetLemmatizer` with punctuation stripping.
-2. **Feature Extraction:**
-   - Term Frequency-Inverse Document Frequency (`TfidfVectorizer`) representation.
-3. **Similarity & Retrieval:**
-   - `cosine_similarity` matrix calculation to rank the best matching response from the knowledge corpus.
-   - Built-in greeting detection and fallback handling for unrecognized queries.
+   - Lemmatization via `WordNetLemmatizer` with punctuation stripping and case normalization.
+2. **Feature Representation**:
+   - Scikit-Learn `TfidfVectorizer` mapping queries and corpus entries into a shared vector space.
+3. **Similarity & Retrieval**:
+   - Cosine similarity matrix evaluation to rank corpus responses.
+   - Rule-based greeting detection and graceful fallback handling for out-of-domain queries.
 
 ---
 
-## 📁 Repository Structure
+## Project Structure
 
-```
+```text
 JansenAI/
-│
 ├── jansen.py             # Main CLI chatbot application
-├── jansen2.py            # Extended chatbot implementation variant
+├── jansen2.py            # Extended chatbot variant
 ├── chatbot.txt           # Domain knowledge base and conversation corpus
-├── Chatbot.ipynb         # Jupyter Notebook with full research & experiments
-├── How to Use.txt        # Usage instructions
+├── Chatbot.ipynb         # Jupyter Notebook with experiments and evaluation
+├── How to Use.txt        # Usage notes
 └── README.md             # Project documentation
 ```
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
-### 1. Prerequisites
-- Python 3.9+ installed
-- Required Python libraries:
+### Prerequisites
+
+- Python 3.9+
+- Core dependencies:
   ```bash
   pip install numpy scikit-learn nltk
   ```
 
-### 2. Download NLTK Corpora
-Run Python once to download necessary NLTK packages:
+### NLTK Corpora Download
+
+Download the required linguistic packages in Python:
+
 ```python
 import nltk
+nltk.download('popular', quiet=True)
 nltk.download('punkt')
 nltk.download('wordnet')
-nltk.download('omw-1.4')
 ```
 
-### 3. Run the Chatbot
+### Running the Chatbot
+
+Start the interactive CLI session:
+
 ```bash
 python jansen.py
 ```
 
-### 4. Interactive Chat Example
-```text
-JANSEN: My name is Jansen. I will answer your queries about Chatbots. If you want to exit, type Bye!
-User  : Hi
-JANSEN: hello
-User  : What is a chatbot?
-JANSEN: A chatbot is a computer program or an artificial intelligence which conducts a conversation via auditory or textual methods.
-User  : Bye
-JANSEN: Bye! take care..
-```
+Type your prompt into the console or type `bye` to exit.
 
 ---
 
-## 🔬 Experimentation & Notebook
-Open and run `Chatbot.ipynb` in VS Code or Jupyter Lab to view detailed data exploration, corpus token statistics, and step-by-step model training.
+## License
 
----
-
-## 👤 Author
-
-- **Muhammad Luthfi Abdillah** — [@MasterPandaa](https://github.com/MasterPandaa)
+This project is open-source and available under the [MIT License](LICENSE).
