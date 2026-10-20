@@ -1,79 +1,64 @@
-# JansenAI — Classical NLP Conversational Agent
+<p align="center">
+  <img src="https://raw.githubusercontent.com/MasterPandaa/MasterPandaa/main/assets/banners/JansenAI.svg" alt="JansenAI Dialogue Agent Banner" width="100%">
+</p>
 
-A conversational chatbot in Python utilizing **Natural Language Processing (NLP)**, **TF-IDF Vectorization**, and **Cosine Similarity** for semantic response retrieval.
+<p align="center">
+  <img src="https://img.shields.io/badge/Domain-NLP_Conversational_Agent-4F46E5?style=flat-square" alt="Domain">
+  <img src="https://img.shields.io/badge/Library-NLTK_3.8+-0284C7?style=flat-square" alt="NLTK">
+  <img src="https://img.shields.io/badge/Vector-TF--IDF_Similarity-10B981?style=flat-square" alt="TF-IDF">
+  <img src="https://img.shields.io/badge/Language-Python_3-3776AB?style=flat-square&logo=python" alt="Python">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-gray?style=flat-square" alt="License"></a>
+</p>
 
-JansenAI parses user queries, applies linguistic normalization and lemmatization via NLTK, and computes vector similarity across a knowledge corpus (`chatbot.txt`) to surface relevant responses in real time.
+## Overview
 
----
-
-## Architecture & Methodology
-
-```mermaid
-flowchart LR
-    A["User Query"] --> B["NLTK Normalization<br/>(Tokenize & Lemmatize)"]
-    B --> C["TF-IDF Vectorizer<br/>(Term Frequency Weights)"]
-    C --> D["Cosine Similarity<br/>(Corpus Distance)"]
-    D --> E["Response Selection<br/>(Best Semantic Match)"]
-```
-
-1. **Text Preprocessing & Normalization**:
-   - Word and sentence tokenization using `nltk.sent_tokenize` and `nltk.word_tokenize`.
-   - Lemmatization via `WordNetLemmatizer` with punctuation stripping and case normalization.
-2. **Feature Representation**:
-   - Scikit-Learn `TfidfVectorizer` mapping queries and corpus entries into a shared vector space.
-3. **Similarity & Retrieval**:
-   - Cosine similarity matrix evaluation to rank corpus responses.
-   - Rule-based greeting detection and graceful fallback handling for out-of-domain queries.
+JansenAI is a conversational dialogue agent built with Python, demonstrating core principles of statistical **Natural Language Processing (NLP)**. The engine transforms unstructured user queries into vector representations using tokenization, lemmatization, and TF-IDF weighting, matching intent against an indexed corpus using cosine similarity metrics.
 
 ---
 
-## Project Structure
+## Core Capabilities
 
-```text
-JansenAI/
-├── jansen.py             # Main CLI chatbot application
-├── jansen2.py            # Extended chatbot variant
-├── chatbot.txt           # Domain knowledge base and conversation corpus
-├── Chatbot.ipynb         # Jupyter Notebook with experiments and evaluation
-├── How to Use.txt        # Usage notes
-└── README.md             # Project documentation
-```
+- **Linguistic Preprocessing Pipeline**: Tokenizes sentences, removes noise, strips punctuation, and applies WordNet lemmatization.
+- **TF-IDF Vector Space Modeling**: Maps conversational query utterances and corpus documents into high-dimensional sparse vector spaces.
+- **Cosine Proximity Retrieval**: Identifies the closest semantically aligned responses by computing vector angle dot products.
+- **Fallback Intent Handling**: Employs configurable similarity score thresholds to detect out-of-domain queries and trigger clarification routines.
+- **Interactive Terminal Console**: Lightweight execution interface requiring minimal runtime footprint and zero GPU accelerators.
 
 ---
 
-## Getting Started
+## Quickstart
 
 ### Prerequisites
 
-- Python 3.9+
-- Core dependencies:
-  ```bash
-  pip install numpy scikit-learn nltk
-  ```
+- Python 3.8+
 
-### NLTK Corpora Download
+### Setup and Execution
 
-Download the required linguistic packages in Python:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/MasterPandaa/JansenAI.git
+   cd JansenAI
+   ```
 
-```python
-import nltk
-nltk.download('popular', quiet=True)
-nltk.download('punkt')
-nltk.download('wordnet')
-```
+2. Install dependencies:
+   ```bash
+   pip install nltk scikit-learn
+   ```
 
-### Running the Chatbot
+3. Download required NLTK corpora:
+   ```python
+   import nltk
+   nltk.download('punkt')
+   nltk.download('wordnet')
+   ```
 
-Start the interactive CLI session:
-
-```bash
-python jansen.py
-```
-
-Type your prompt into the console or type `bye` to exit.
+4. Launch the agent:
+   ```bash
+   python chatbot.py
+   ```
 
 ---
 
 ## License
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
